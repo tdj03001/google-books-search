@@ -6,9 +6,9 @@ import Typography from "@material-ui/core/Typography";
 
 const styles = theme => ({
   text: {
-    paddingTop: theme.spacing.unit * 2,
-    paddingLeft: theme.spacing.unit * 2,
-    paddingRight: theme.spacing.unit * 2
+    paddingTop: theme.spacing(2),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2)
   },
   footText: {
     color: "white"
