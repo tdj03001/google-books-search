@@ -55,7 +55,7 @@ class Bookshelf extends Component {
                 authors={book.authors}
                 description={book.description}
                 synopsis={book.synopsis}
-                image={book.volumeInfo.imageLinks.thumbnail}
+                image={book.image.thumbnail}
                 link={book.link}
               >
                 <button onClick={() => this.removeBook(book._id)} > Delete </button>
