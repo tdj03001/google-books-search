@@ -1,0 +1,112 @@
+import React, { Component } from "react";
+import "./pages.css";
+import API from "../utils/API";
+import Container from "../components/Layout/container";
+import Wrapper from "../components/Layout/wrapper";
+import Typography from "@material-ui/core/Typography";
+import BookCard from "../components/Card";
+import SearchForm from "../components/Search/SearchForm";
+import SearchResults from "../components/SearchResults";
+
+class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: "",
+      books: [],
+      title: "",
+      authors: [],
+      description: [],
+      synopsis: '',
+      image: "",
+      link: ""
+    };
+    this.handleSaveBook = this.handleSaveBook.bind(BookCard);
+  }
+
+  handleSearchInput = event => {
+    this.setState({ search: event.target.value });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    API.searchBooks(this.state.search)
+      .then(res => {
+        console.log(res.data.items);
+        this.setState({ books: [...res.data.items] });
+      })
+      .catch(err => this.setState({ error: err.message }));
+  };
+  clickAddBtn = (event) => {
+    event.preventDefault();
+    this.state.books.map((book, i) => {
+      this.id = book._id
+      this.key = book._id
+      this.title = book.volumeInfo.title
+      this.authors = book.volumeInfo.authors
+      this.description = book.volumeInfo.description
+      this.synopsis = book.searchInfo
+      this.image = book.volumeInfo.imageLinks
+    })
+    Object.keys(this.synopsis).forEach((key) => {
+      let sKey = this.synopsis[key];
+      let iKey = this.image[key];
+      console.log(sKey, iKey);
+    })
+
+    console.log(this.title, this.authors, this.description, this.synopsis, this.image);
+  }
+
+  handleSaveBook = event => {
+    event.preventDefault();
+    this.state.books.map((book, i) => {
+      this.id = book._id
+      this.key = book._id
+      this.title = book.volumeInfo.title
+      this.authors = book.volumeInfo.authors
+      this.description = book.volumeInfo.description
+      this.synopsis = book.searchInfo
+      this.image = book.volumeInfo.imageLinks
+    })
+    console.log(this.title, this.authors, this.description, this.synopsis, this.image);
+    API.saveBook({
+      title: this.title,
+      authors: this.authors,
+      description: this.description,
+      synopsis: this.synopsis,
+      image: this.image,
+      link: this.link
+    })
+      .then(res => alert("Book added to your bookshelf!"))
+      .catch(err => console.log(err));
+
+  };
+  render() {
+    return (
+      <div>
+        <Wrapper>
+          <Container style={{ minHeight: "80%" }}>
+            <Typography id="pageTitle" variant="h4" component="h3">
+              Search for a book!
+            </Typography>
+
+            <SearchForm
+              handleSearchInput={this.handleSearchInput}
+              handleFormSubmit={this.handleFormSubmit}
+            />
+          </Container>
+
+          <Container>
+            <SearchResults
+              books={this.state.books}
+              onClick={this.handleSaveBook}
+            />
+          </Container>
+        </Wrapper>
+
+      </div>
+    );
+  }
+}
+
+export default Search;
