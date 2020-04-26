@@ -1,10 +1,10 @@
-import React from "./node_modules/react";
-import { withStyles } from "./node_modules/@material-ui/core/styles";
-import Card from "./node_modules/@material-ui/core/Card";
-import CardActionArea from "./node_modules/@material-ui/core/CardActionArea";
-import CardContent from "./node_modules/@material-ui/core/CardContent";
-import CardMedia from "./node_modules/@material-ui/core/CardMedia";
-import Typography from "./node_modules/@material-ui/core/Typography";
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Typography from "@material-ui/core/Typography";
 
 const styles = {
   cardContainer: {
