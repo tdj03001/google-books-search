@@ -20,7 +20,7 @@ const SearchResults = props => {
             Add
           </button>
           <button name="viewbtn">
-            <span href={props.link}>View</span>
+            <span href={props.selfLink}>View</span>
           </button>
         </BookCard>
       ))}
