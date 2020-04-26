@@ -27,8 +27,8 @@ function NavBar(props) {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             Google Books Search
           </Typography>
-          <Button href="/" color="inherit">Saved Books</Button>
-          <Button href="/" color="inherit">Search</Button>
+          <Button href="/bookshelf" color="inherit">Saved Books</Button>
+          <Button href="/search" color="inherit">Search</Button>
         </Toolbar>
       </AppBar>
     </div>
