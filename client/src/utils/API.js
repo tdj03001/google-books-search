@@ -1,5 +1,4 @@
 import axios from "axios";
-import APIKEY from "../config/keys";
 const URL = "https://www.googleapis.com/books/v1/volumes?q=";
 
 
@@ -7,7 +6,7 @@ export default {
 
   searchBooks: (query) => {
     console.log(query);
-    return axios.get(URL + query + APIKEY);
+    return axios.get(URL + query + process.env.APIKEY);
   },
 
   saveBook: function (bookData) {
