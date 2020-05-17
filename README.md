@@ -22,9 +22,9 @@ Future functionality will include the ability for users to click a "View" button
 
 #### GitHub Repo
 
-https://github.com/tdj03001/google-books-search
+https://github.com/tdj03001/search-goog-books/
 
 
 #### Live Site
 
-https://gentle-island-00321.herokuapp.com/
+https://searchgoogbooks.herokuapp.com/
